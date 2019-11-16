@@ -1,0 +1,43 @@
+
+/* these are for sticky footer, see: https://materializecss.com/footer.html */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+#Logo {
+    width: auto;
+    vertical-align: middle;
+    height: 100%;
+}
+
+/* Tooltip text */
+.tooltiptext {
+    visibility: hidden;
+    width: 10000px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 10000;
+  }
+
+ .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+     position: absolute;
+    z-index: 1000;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
