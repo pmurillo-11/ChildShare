@@ -14,11 +14,15 @@ block content
       btn.leftButton.col.s6.invisible.browser-default#newScriptButton(type="button" style="margin-bottom: 25px; margin-top: 25px;") NEW USER
       //.col.s12.chips.chips-initial
       .row
-        .col.s12.center#dateShown
+        .col.s2
+        .col.s2.i.material-icons(style="font-size:10em") keyboard_arrow_left
+        .col.s4#dateShown
+        .col.s4.i.material-icons(style="font-size:10em") keyboard_arrow_right
       .row
         #scriptList
 
-      <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      <div id="calendar" style="height: 800px;"></div>
+      //<iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
   footer
     .footer-copyright(style="margin-top: 50px;")

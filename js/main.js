@@ -40,7 +40,20 @@ $(document).ready(function() {
         }
     });
 
+    $('#calendar').tuiCalendar({
+        defaultView: 'month',
+        taskView: true,
+        template: {
+          monthDayname: function(dayname) {
+            return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+          }
+
+        }
+      });
+
 });
+
+
 
 /**
  * @name startUp
