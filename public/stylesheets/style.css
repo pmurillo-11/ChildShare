@@ -1,0 +1,517 @@
+
+.editTable {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grayCell {
+    background-color: gray;
+    color: white;
+    width: 10%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.whatMomLogo {
+    background-color: rgba(0,0,0,0.1);
+    text-align: center;
+    display:inline;
+}
+
+.topAndBottom {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.headerLink {
+    color: white;
+    text-decoration: none;
+}
+
+.header {
+	background-color: #006182;
+    vertical-align: middle;
+    display:inline;
+}
+
+#Logo {
+    width: auto;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.boldHeader {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 90%;
+}
+
+.marginLeft {
+    margin-left: 20px;
+}
+
+.marginLefter {
+    margin-left: 30px;
+}
+
+.descriptionDisplay {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+    font-size: 16px;
+    margin-left: 20px;
+    line-height: 1.4;
+}
+
+.revTable {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 95%;
+    font-size: 14px;
+    margin-left: 20px;
+    line-height: 1.4;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.revTableCell {
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    white-space: pre-wrap;
+    min-height: 50px;
+}
+
+.revTableHeader {
+    background-color: lightgray;
+    font-weight: bold;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.imageHeight {
+    height: 200px;
+    width: auto;
+}
+
+.descriptionTable {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+    font-size: 16px;
+    margin-left: 20px;
+    line-height: 1.4;
+    vertical-align: top;
+}
+
+.paddingLeft {
+    padding-left: 50px;
+}
+
+.leftSide {
+    width:59%;
+    margin-right:1%;
+    float: left;
+    overflow: auto;
+    height: 700px;
+}
+
+.rightSide {
+    margin-left:60%;
+    width: 39%;
+    margin-right:1%;
+    margin-top: 0px;
+    height: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+.caseNotes {
+    border:1px solid black;
+    width: 500px;
+    height: 600px;
+}
+
+.grayText {
+    color: lightslategray;
+}
+
+.blackText {
+    color: black;
+}
+
+.strikeThrough {
+    text-decoration: line-through;
+}
+
+.italicText {
+    font-style: italic;
+}
+
+.hwt-content mark {
+    border-radius: 3px;
+    background-color: #f6f7e8;
+}
+
+.hwt-content mark.pink {
+    border-radius: 3px;
+    background-color: #fcc2d7;
+}
+
+.hwt-content mark.blue {
+    border-radius: 3px;
+    background-color: #a3daff;
+}
+
+.hwt-content mark.lightGreen {
+    border-radius: 3px;
+    background-color: #99ffbb;
+}
+
+.saveButton {
+    background-color: #017c6e;
+    margin-bottom: 20px;
+    float: left;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.greenButton {
+    background-color: #017c6e;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    float: left;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.redButton {
+    background-color: red;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float: left;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.addRowAboveButton {
+    background-color: green;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float: left;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* class='large' is for input text area of large size */
+.large {
+	background: white;
+	width: 600px;
+    height: 60px;
+    white-space: pre-wrap;
+}
+
+/* class='mediumlarge' is for input text area of mediumlarge size */
+.mediumlarge {
+	background: white;
+	width: 180px;
+    height: 120px;
+}
+
+/* class='medium' is for input text area of medium size */
+.medium {
+	background: white;
+	width: 320px;
+    height: 18px;
+}
+
+/* class='small' is for input text area of small size */
+.small {
+	background: white;
+	width: 60px;
+    height: 18px;
+}
+
+.bgGray {
+    background: rgb(202, 197, 197);
+}
+
+.admin {
+    background: lightcoral;
+    font-weight: bold;
+    text-align: center;
+    border: 3px solid red;
+    padding: 10px;
+    font-size: 2.0em;
+}
+
+.stepImage {
+    max-width: 500px;
+}
+
+.bigImage {
+    max-width: 800px;
+}
+
+.centerimage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.sortable {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 95%;
+    font-size: 14px;
+    margin-left: 20px;
+    line-height: 1.4;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+input[type=checkbox] {
+    position: relative !important;
+    width: 8mm;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 8mm;
+    border: 0.1mm solid black;
+}
+
+input[type=checkbox]:not(:checked) {
+    background-color:  white;
+    opacity: 100;
+    pointer-events: auto;
+}
+
+input[type=checkbox]:checked {
+    background-color:  #017c6e;
+    pointer-events: auto;
+    opacity: 100;
+}
+
+input[type=checkbox]:checked:after {
+    margin-left: 2.8mm;
+    margin-top: 0.4mm;
+    width: 2.5mm;
+    height: 6.3mm;
+    border: solid white;
+    border-width: 0 1.0mm 1.0mm 0;
+    -webkit-transform: rotate(45deg) !important;
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: "";
+    display: inline-block;
+    margin-bottom: 1.1mm !important;
+}
+
+/* show "sort icons" before the table is sorted */
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+    content: " \25B4\25BE"
+}
+
+.footer {
+    margin-bottom: 50px;
+}
+
+.stepHighlight {
+    background-color: #fff2ac;
+    background-image: linear-gradient(to right, #ffe359 0%, #fff2ac 100%);
+}
+
+.searchBar {
+    margin-left: 50px;
+}
+
+@font-face {
+	font-family: open-sans;
+	src: url('../fonts/OpenSans-Light.ttf');
+}
+
+@font-face {
+	font-family: ubuntu;
+	src: url('../fonts/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+	font-family: manuale;
+	src: url('../fonts/Manuale-Regular.ttf');
+}
+
+.mainTitle {
+	font-family: open-sans;
+    font-size: 34px;
+    font-weight: 700;
+	line-height: 66px;
+    letter-spacing: -.01em;
+    padding-left: 25px !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    color: white;
+    vertical-align: middle;
+}
+
+.navTitle {
+	font-family: open-sans;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: white;
+    padding-right: 15px;
+    padding-left: 15px;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+.footer-copyright {
+	background-color: #EBEEF0;
+	padding-top:20px;
+	padding-bottom: 20px;
+    margin-bottom: -20px;
+}
+
+.footerText {
+	margin-left: 15%;
+	font-family: manuale;
+	font-size: 12px;
+	line-height: 27px;
+	color: #46545C;
+}
+
+.leftButton {
+	background-color: #008ABF !important;
+	border: 2px solid #008ABF !important;
+	width: 210px !important;
+	cursor: pointer;
+	border-radius: 20px !important;
+	display: inline-flex !important;
+	align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 19px;
+    margin-right: 20px;
+    -webkit-appearance: none !important;
+}
+
+.leftButton:hover {
+	background-color: white !important;
+	border: 2px solid #008ABF !important;
+	padding-top: -8px !important;
+	width: 210px !important;
+	cursor: pointer;
+	border-radius: 20px !important;
+	color:  #008ABF !important;
+}
+
+.rightButton {
+	margin-left: 20px;
+	background-color: white !important;
+	border: 2px solid #008ABF !important;
+	width: 210px !important;
+	cursor: pointer;
+	border-radius: 20px !important;
+	color:  #008ABF !important;
+    font-size: 19px;
+	display: inline-flex !important;
+	align-items: center;
+    justify-content: center;
+    -webkit-appearance: none !important;
+}
+
+.rightButton:hover {
+	background-color: #008ABF !important;
+	border: 2px solid #008ABF !important;
+	width: 210px !important;
+	cursor: pointer;
+	border-radius: 20px !important;
+	color: white !important;
+}
+
+button:focus
+{
+  outline:none;
+}
+
+.secondTitle {
+	font-family: open-sans;
+	font-weight: 300;
+	font-size: 34px;
+	line-height: 36px;
+	letter-spacing: -.01 em;
+	color: #008ABF;
+}
+
+.versionText {
+	font-family: ubuntu;
+	font-weight: 500;
+	font-size: 20px;
+	letter-spacing: .05em;
+	text-transform: Uppercase;
+    color: #46545C;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.infoText {
+	font-family: manuale;
+	font-size: 18px;
+	line-height: 26px;
+	color: #46545C;
+	text-transform: none;
+	margin-left: 20px;
+}
+
+.toolText {
+	font-family: manuale;
+	margin-top: 10px;
+	font-size: 18px;
+	line-height: 26px;
+	color: #46545C;
+	text-transform: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.secondTitle {
+	font-family: open-sans;
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 30px;
+	letter-spacing: -.01 em;
+	color: #008ABF;
+}

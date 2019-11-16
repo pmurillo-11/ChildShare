@@ -1,0 +1,44 @@
+{
+  "name": "childshare",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "babel-node ./bin/childshare",
+    "test": "mocha test/unit/*.spec.js --require test/setup.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "acorn": "^6.0.5",
+    "babel-node": "0.0.1-security",
+    "browserify-middleware": "^8.1.1",
+    "chart.js": "^2.8.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "fs": "0.0.1-security",
+    "highlight-within-textarea": "^2.0.5",
+    "http-errors": "~1.6.2",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.2.0",
+    "jsdom-global": "^3.0.2",
+    "materialize-css": "^1.0.0-rc.2",
+    "mermaid": "^8.4.0",
+    "moment": "^2.22.2",
+    "mongodb": "^3.0.5",
+    "monk": "^6.0.5",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.1",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.5.5",
+    "@babel/helper-plugin-utils": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.5.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}

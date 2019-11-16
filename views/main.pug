@@ -1,0 +1,21 @@
+extends layout_common
+
+block content
+  script(type="module" src='./javascripts/main.js')
+
+  nav.nav-extended(style="background-color: #006182;")
+    .nav-wrapper(style="height: 100px;")
+      img.brand-logo#Logo(src='images/tbd.png', alt='Logo')
+      ul.right.hideonmed-and-down#nav-mobile(style="height: 100%;")
+        li.navTitle.active(style="height: 100%;") childshare
+
+  body
+    .container
+      btn.leftButton.col.s6.invisible.browser-default#newScriptButton(type="button" style="margin-bottom: 25px; margin-top: 25px;") NEW USER
+      .col.s12.chips.chips-initial
+
+      #scriptList
+
+  footer
+    .footer-copyright(style="margin-top: 50px;")
+      p.footerText 2019 ChildShare
