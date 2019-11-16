@@ -53,8 +53,8 @@ $(document).ready(function() {
 */
 function startUp(){
 
-    help.getEntireCollection(scriptCollection, { id: 1, title: 1, released: 1, category: 1, productcategory: 1 }, function(next){;
-        //console.log(next);
+    help.getEntireCollection(scriptCollection, {}, function(next){;
+        console.log(next);
         scripts = next;
         buildInterface();
     });
@@ -79,8 +79,8 @@ function newScript(){
 
     // refresh from the db so we don't get duplicates if people are creating scripts off of an
     // old version of the page
-    help.getEntireCollection(scriptCollection, { id: 1 }, function(next){;
-        //console.log(next);
+    help.getEntireCollection(scriptCollection, {}, function(next){;
+        console.log(next);
         let scriptIDs = next;
 
         // find the largest id number, the new script will be one higher
@@ -94,9 +94,8 @@ function newScript(){
         max++;
         // not excited about this template but it works
         let toWrite = {userID: 'aperson', userName: 'aperson', firstName: 'A', lastName: 'Person', userEmail: "aperson@gmail.com",
+            locationCity: "San Diego", secretCode: "tbd", rank: 1,
             children: [{ "name": "Mustard", "age": 4 }],
-            userGuideRef : { "TBD" : { "description" : "TBD", "file" : "TBD.pdf", "page" : 1 }},
-            revs : [{ "revision": "", "date" : "", "originator" : "", "changeDescription" : "Initial Release" }]
         };
 
         save.newScript( 'parse/addscript/' + scriptCollection, toWrite, function (next){
@@ -119,14 +118,12 @@ function buildInterface(){
 
     let show ='';
 
-        //show += '<button id="newScriptButton" class="leftButton topAndBottom" type="button">NEW SCRIPT</button>';
-        show += '<table id = "mytable" class = "sortable">';
-        show += '<tr><th class = "revTableCell">Script #</th><th class = "revTableCell">Action</th>';
-        show += '<th class = "revTableCell">Released</th>';
-        show += '<th class = "revTableCell">Category</th>';
-        show += '<th class = "revTableCell">Product Category</th>';
-        show += '<th class = "revTableCell">Description</th></tr>';
-        $('#newScriptButton').removeClass('invisible');
+    //show += '<button id="newScriptButton" class="leftButton topAndBottom" type="button">NEW SCRIPT</button>';
+    show += '<table id = "mytable" class = "sortable">';
+    show += '<tr><th class = "revTableCell">Name</th>';
+    show += '<th class = "revTableCell">Location</th>';
+    show += '<th class = "revTableCell">Children</th>';
+    $('#newScriptButton').removeClass('invisible');
 
     $.each(scripts, function(key, value) {
 
@@ -187,13 +184,9 @@ function buildRow(value){
 
     let show = '';
 
-        show += '<tr><td class = "revTableCell">' + value.id + '</td>';
-        show += '<td class = "revTableCell"><a href="view/' + value.id + '" class= "" id="' + value.id + '" target="" >View All</a> ';
-        show += '<a href="update/' + value.id + '" class= "" id="' + value.id + '" target="" >Edit</a>';
-        show += '<td class = "revTableCell">' + help.noUndef(value.released) + '</td>';
-        show += '<td class = "revTableCell">' + help.noUndef(value.category) + '</td>';
-        show += '<td class = "revTableCell">' + help.noUndef(value.productcategory) + '</td>';
-        show += '<td class ="revTableCell"><a href="script/' + value.id + '" class="linkShowScript" id="' + help.noUndef(value.title) + '" target="">' + help.noUndef(value.title) + '</a></td>';
+    show += '<tr><td class = "revTableCell">' + value.firstName + ' ' + value.lastName + '</td>';
+    show += '<td class = "revTableCell">' + value.locationCity + '</td>';
+    show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
 
     return show;
 

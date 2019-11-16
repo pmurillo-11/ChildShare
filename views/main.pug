@@ -5,7 +5,7 @@ block content
 
   nav.nav-extended(style="background-color: #006182;")
     .nav-wrapper(style="height: 100px;")
-      img.brand-logo#Logo(src='images/tbd.png', alt='Logo')
+      img.brand-logo#Logo(src='images/childshare_3.png', alt='Logo')
       ul.right.hideonmed-and-down#nav-mobile(style="height: 100%;")
         li.navTitle.active(style="height: 100%;") childshare
 
@@ -13,8 +13,10 @@ block content
     .container
       btn.leftButton.col.s6.invisible.browser-default#newScriptButton(type="button" style="margin-bottom: 25px; margin-top: 25px;") NEW USER
       .col.s12.chips.chips-initial
-
-      #scriptList
+      .row
+        .col.s12#date
+      .row
+        #scriptList
 
   footer
     .footer-copyright(style="margin-top: 50px;")
