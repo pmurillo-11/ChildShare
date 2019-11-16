@@ -53,6 +53,8 @@ $(document).ready(function() {
 */
 function startUp(){
 
+    showDateSelector();
+
     help.getEntireCollection(scriptCollection, {}, function(next){;
         console.log(next);
         scripts = next;
@@ -60,6 +62,11 @@ function startUp(){
     });
 
 }; // end startUp
+
+function showDateSelector(){
+    let today = new Date();
+    $('#dateShown').html( today );
+}
 
 /**
  * @name newScript
