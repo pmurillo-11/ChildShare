@@ -65,41 +65,43 @@ function startUp(){
         users = [{"_id":"5dd06a7560a0b03687cccfcb",
                     "userID":"aperson",
                     "userName":"aperson",
-                    "firstName":"A",
-                    "lastName":"Person",
+                    "firstName":"Andrew",
+                    "lastName":"Mustard",
                     "image": "profile_1.png",
                     "userEmail":"aperson@gmail.com",
-                    "locationCity":"San Diego",
+                    "locationCity":"Vista",
                     "secretCode":"tbd",
                     "available": [  {date: today, startTime: new Date().setHours(today.getHours() + 4), endTime: new Date().setHours(today.getHours() + 12)},
                                     {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours() + 1), endTime: new Date().setHours(oneAfter.getHours() + 6)}],
                     "rank":"1",
-                    "children":[{"name":"Mustard","age":"4"}]},
+                    "children":[{"name":"Francis","age":"3"}]},
                     {"_id":"5dd06a7560a0b03687cccfcb",
                     "userID":"aperson",
                     "userName":"aperson",
-                    "firstName":"A",
-                    "lastName":"Person",
+                    "firstName":"Stephanie",
+                    "lastName":"Brown",
                     "image": "profile2.png",
                     "userEmail":"aperson@gmail.com",
-                    "locationCity":"San Diego",
+                    "locationCity":"Pacific Beach",
                     "secretCode":"tbd",
                     "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
-                                  {date: oneAfter }],
+                                  {date: oneAfter },
+                                  {date: twoAfter },],
                     "rank":"1",
-                    "children":[{"name":"Mustard","age":"4"}]},
+                    "children":[{"name":"Erin","age":"1"}]},
                     {"_id":"5dd06a7560a0b03687cccfcb",
-                    "userID":"aperson",
+                    "userID":"Lily",
                     "userName":"aperson",
-                    "firstName":"A",
-                    "lastName":"Person",
+                    "firstName":"Lily",
+                    "lastName":"White",
                     "image": "profile3.png",
                     "userEmail":"aperson@gmail.com",
                     "locationCity":"San Diego",
-                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)}],
+                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
+                                  {date: twoAfter },],
                     "secretCode":"tbd",
                     "rank":"1",
-                    "children":[{"name":"Mustard","age":"4"}]},
+                    "children":[{"name":"Blue","age":"4"}]},
                 ]
         console.log(users);
         buildInterface();
@@ -160,7 +162,7 @@ function buildInterface(){
 
             for(let i = 0; i < value.available.length; i++){
                 console.log(value.available[i].date, timeSelected)
-                if( value.available[i].date.getDate() == d.getDate() &&
+                if( new Date(value.available[i].date).getDate() == d.getDate() &&
                     value.available[i].date.getMonth() == d.getMonth() &&
                     value.available[i].date.getFullYear() == d.getFullYear()){
 
