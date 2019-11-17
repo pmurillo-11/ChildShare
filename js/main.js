@@ -17,14 +17,17 @@ let scriptCollection = 'childshare';
 // the strings that we are searching for, defaults to AND search, if * is an item it is an OR search
 let searches = [];
 
+let dateSelected;
+
 // DOM Ready =============================================================
 $(document).ready(function() {
 
     // page load
     startUp();
 
-    // NEW User button click
-    $('#newScriptButton').on('click', newScript);
+    // left button click
+    $('#dateLeft').on('click', newDate);
+    $('#dateRight').on('click', newDate);
 
     // search bar inputs, search bar uses chips, see:
     // https://materializecss.com/chips.html
@@ -55,6 +58,7 @@ $(document).ready(function() {
 */
 function startUp(){
 
+    dateSelected = new Date();
     showDateSelector();
 
     help.getEntireCollection(scriptCollection, {}, function(next){;
@@ -79,11 +83,11 @@ function startUp(){
 }; // end startUp
 
 function showDateSelector(){
-    let today = new Date();
+
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
     "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    let show = monthNames[today.getMonth()] + ' ' + today.getDate() + ' ' + today.getFullYear();
+    let show = monthNames[dateSelected.getMonth()] + ' ' + dateSelected.getDate() + ' ' + dateSelected.getFullYear();
     $('#dateShown').html( show );
 };
 
@@ -130,6 +134,17 @@ function newScript(){
         }); // end save.newScript
     });
 }; // end newScript
+
+function newDate(event){
+
+    console.log(event.currentTarget.id)
+
+    if (event.currentTarget.id.includes('Left')){
+        dateSelected.setDate(dateSelected.getDate()-1);
+    }
+
+    showDateSelector();
+}
 
 /**
  * @name buildInterface
