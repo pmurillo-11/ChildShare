@@ -7,12 +7,17 @@
 let express = require('express');
 let router = express.Router();
 
+/* GET Home page. */
+router.get('/home', function(req, res, next) {
+  res.render('home', { title: 'Home' });
+});
+
 /* GET main page. */
 router.get('/', function(req, res, next) {
   res.render('main', { title: 'ChildShare' });
 });
 
-/* GET main page. */
+/* GET Profile page. */
 router.get('/profile', function(req, res, next) {
   res.render('profile', { title: 'Profile' });
 });
