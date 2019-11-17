@@ -25,12 +25,22 @@ block content
         h4 Provide Child Share
       .row.center(style="margin-top: 20px")
         .col.s2
+         <div style="padding-top: 20px;"><strong>Start Time</strong></div>
         .col.s4
           <input type="text" class="datepicker" id="datepicker">
         .col.s4
           <input type="text" class="timepicker" id="timepicker" placeholder = "select time">
+
+      .row.center(style="margin-top: 20px")
         .col.s2
-            button#dateSearch.saveButton.btn.waves-effect.waves-light SUBMIT
+         <div style="padding-top: 20px;"><strong>End Time</strong></div>
+        .col.s4
+          <input type="text" class="datepicker" id="datepicker2">
+        .col.s4
+          <input type="text" class="timepicker" id="timepicker2" placeholder = "select time"> 
+
+        .col.s2
+            button#submitTime.saveButton.btn.waves-effect.waves-light SUBMIT
               i.material-icons.right search
 
       .row(style="margin-top: 40px")

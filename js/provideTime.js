@@ -26,14 +26,23 @@ $(document).ready(function() {
     console.log("whatever");
 
     // left button click
-    $('#dateSearch').on('click', newDate);
+    $('#submitTime').on('click', newAvailability);
 
     $('.datepicker').datepicker({
         defaultDate: new Date(),
         setDefaultDate: true
     });
 
+    $('.datepicker2').datepicker({
+        defaultDate: new Date(),
+        setDefaultDate: true
+    });
+
     $('.timepicker').timepicker({
+
+    });
+
+    $('.timepicker2').timepicker({
 
     });
 
@@ -62,50 +71,6 @@ function startUp(){
     oneAfter = new Date(oneAfter.setDate(today.getDate()+1));
     twoAfter = twoAfter.setDate(today.getDate()+2);
 
-    users = [{"_id":"5dd06a7560a0b03687cccfcb",
-                "userID":"aperson",
-                "userName":"aperson",
-                "firstName":"Andrew",
-                "lastName":"Mustard",
-                "image": "profile_1.png",
-                "userEmail":"aperson@gmail.com",
-                "locationCity":"Vista",
-                "secretCode":"tbd",
-                "available": [  {date: today, startTime: new Date().setHours(today.getHours() + 4), endTime: new Date().setHours(today.getHours() + 12)},
-                                {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours() + 1), endTime: new Date().setHours(oneAfter.getHours() + 6)}],
-                "rank":"1",
-                "children":[{"name":"Francis","age":"3"}]},
-                {"_id":"5dd06a7560a0b03687cccfcb",
-                "userID":"aperson",
-                "userName":"aperson",
-                "firstName":"Stephanie",
-                "lastName":"Brown",
-                "image": "profile2.png",
-                "userEmail":"aperson@gmail.com",
-                "locationCity":"Pacific Beach",
-                "secretCode":"tbd",
-                "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
-                              {date: oneAfter },
-                              {date: twoAfter },],
-                "rank":"1",
-                "children":[{"name":"Erin","age":"1"}]},
-                {"_id":"5dd06a7560a0b03687cccfcb",
-                "userID":"Lily",
-                "userName":"aperson",
-                "firstName":"Lily",
-                "lastName":"Nguyen",
-                "image": "profile3.png",
-                "userEmail":"aperson@gmail.com",
-                "locationCity":"San Diego",
-                "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
-                              {date: twoAfter },],
-                "secretCode":"tbd",
-                "rank":"1",
-                "children":[{"name":"Blue","age":"4"}]},
-            ];
-    console.log("users");
-    buildInterface();
-
 }; // end startUp
 
 /**
@@ -117,25 +82,23 @@ function startUp(){
  * @public
  * @instance
 */
-function newDate(){
+function newAvailability(){
 
-    dateSelected = $('#datepicker').val();
-    timeSelected = $('#timepicker').val();
-    console.log(dateSelected, timeSelected)
-
-    buildInterface();
-}
-
-/**
- * @name buildInterface
- * @desc builds the user interface
- * @param
- * @returns {void}
- * @function
- * @public
- * @instance
-*/
-function buildInterface(){
+    alert("Thanks for contributing!");
+    let today = new Date();
+    users = [{"_id":"5dd06a7560a0b03687cccfcb",
+                    "userID":"aperson",
+                    "userName":"aperson",
+                    "firstName":"Andrew",
+                    "lastName":"Mustard",
+                    "image": "profile_1.png",
+                    "userEmail":"aperson@gmail.com",
+                    "locationCity":"Vista",
+                    "secretCode":"tbd",
+                    "available": [  {date: today, startTime: new Date(), endTime: new Date().setHours(today.getHours() + 12)}],
+                    "rank":"1",
+                    "children":[{"name":"Francis","age":"3"}]}
+                ]
 
     let show ='';
 
@@ -144,55 +107,21 @@ function buildInterface(){
     show += '<th class = "revTableCell center">LOCATION</th>';
     show += '<th class = "revTableCell center">CHILDREN</th>';
     show += '<th class = "revTableCell center">INFO</th>';
+    show += '<th class = "revTableCell center">Start Time</th>';
+    show += '<th class = "revTableCell center">End Time</th>';
     show += '<th class = "revTableCell center">CONTACT</th>';
 
     // filter out unavailable users
     $.each(users, function(key, value) {
-
-        let d = new Date(dateSelected);
-        let t;
-        if ( timeSelected ){
-            t = Date.parse(dateSelected + ' ' + timeSelected);
-        }
-
-        // filter table based on search if there is a search entered
-        if( value.available ){
-
-            for(let i = 0; i < value.available.length; i++){
-                console.log(value.available[i].date, timeSelected)
-                if( new Date(value.available[i].date).getDate() == d.getDate() &&
-                    value.available[i].date.getMonth() == d.getMonth() &&
-                    value.available[i].date.getFullYear() == d.getFullYear()){
-
-                    // if no time is selected show all for that date, else sort out by time
-                    if ( timeSelected && t &&
-                        value.available[i].startTime <= t &&
-                        value.available[i].endTime >= t ){
-
-                        show += buildRow(value);
-
-                    } else if (!t || !value.available[i].startTime) {
-                        show += buildRow(value);
-                    };
-                };
-            };
-        };
+        show += buildRow(value);
     });
 
     show += '</tr></table>';
     $('#scriptList').html( show );
 
-}; // end buildInterface
 
-/**
- * @name buildRow
- * @desc builds the table row
- * @param value
- * @returns show - a string of the html for that table row
- * @function
- * @public
- * @instance
-*/
+}
+
 function buildRow(value){
 
     let show = '';
@@ -201,8 +130,11 @@ function buildRow(value){
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
     show += '<td class = "revTableCell">' + '</td>';
-    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<i class="medium material-icons" style="background-color:transparent;">chat</i>' +  '</td>';
+    show += '<td class = "revTableCell">' + '</td>';
+    show += '<td class = "revTableCell">' + '</td>';
+    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<span class="chaticon"><i class="material-icons" style="background-color:transparent;">chat</i></span>' +  '</td>';
 
     return show;
 
 }; // end buildRow
+
