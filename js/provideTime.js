@@ -14,8 +14,9 @@ let users = {};
 // The database collections used on this page
 let scriptCollection = 'childshare';
 
-let dateSelected;
-let timeSelected;
+let dateSelected = $('#datepicker').val();
+let startTimeSelected = $('#timepicker').val();
+let endTimeSelected = $('#timepicker2').val();
 
 // DOM Ready =============================================================
 $(document).ready(function() {
@@ -84,6 +85,10 @@ function startUp(){
 */
 function newAvailability(){
 
+    dateSelected = $('#datepicker').val();
+    startTimeSelected = $('#timepicker').val();
+    endTimeSelected = $('#timepicker2').val();
+
     alert("Thanks for contributing!");
     let today = new Date();
     users = [{"_id":"5dd06a7560a0b03687cccfcb",
@@ -95,21 +100,21 @@ function newAvailability(){
                     "userEmail":"aperson@gmail.com",
                     "locationCity":"Vista",
                     "secretCode":"tbd",
-                    "available": [  {date: today, startTime: new Date(), endTime: new Date().setHours(today.getHours() + 12)}],
+                    "available": [  {date: dateSelected, startTime: startTimeSelected, endTime: endTimeSelected }],
                     "rank":"1",
                     "children":[{"name":"Francis","age":"3"}]}
                 ]
 
     let show ='';
 
-    show += '<table id = "mytable" class = "mybigtable sortable striped" >';
-    show += '<tr ><th class = "revTableCell center" style="padding-top: 20px; padding-bottom: 20px;">FAMILY</th>';
-    show += '<th class = "revTableCell center">LOCATION</th>';
-    show += '<th class = "revTableCell center">CHILDREN</th>';
-    show += '<th class = "revTableCell center">INFO</th>';
-    show += '<th class = "revTableCell center">Start Time</th>';
-    show += '<th class = "revTableCell center">End Time</th>';
-    show += '<th class = "revTableCell center">CONTACT</th>';
+    show += '<table id = "mytable" class = "mybigtable striped" >';
+    show += '<tr ><th class = "revTableCell tableHeader center" style="padding-top: 20px; padding-bottom: 20px;">FAMILY</th>';
+    show += '<th class = "revTableCell tableHeader center">LOCATION</th>';
+    show += '<th class = "revTableCell tableHeader center">CHILDREN</th>';
+    show += '<th class = "revTableCell tableHeader center">DATE</th>';
+    show += '<th class = "revTableCell tableHeader center">START TIME</th>';
+    show += '<th class = "revTableCell tableHeader center">END TIME</th>';
+    show += '<th class = "revTableCell tableHeader center">CONTACT</th>';
 
     // filter out unavailable users
     $.each(users, function(key, value) {
@@ -129,10 +134,10 @@ function buildRow(value){
     show += '<tr><td class = "revTableCell center"><img style="height: 200px;" src="./images/' + value.image + '"><br><div style="font-size: 22px;;">' + value.firstName + ' ' + value.lastName + '</div></td>';
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
-    show += '<td class = "revTableCell">' + '</td>';
-    show += '<td class = "revTableCell">' + '</td>';
-    show += '<td class = "revTableCell">' + '</td>';
-    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<span class="chaticon"><i class="material-icons" style="background-color:transparent;">chat</i></span>' +  '</td>';
+    show += '<td class = "revTableCell">' + dateSelected + '</td>';
+    show += '<td class = "revTableCell">' + startTimeSelected + '</td>';
+    show += '<td class = "revTableCell">' + endTimeSelected + '</td>';
+    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<span class="chaticon"><i class="medium material-icons" style="background-color:transparent;">chat</i></span>' +  '</td>';
 
     return show;
 

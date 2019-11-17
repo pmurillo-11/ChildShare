@@ -7,7 +7,7 @@ block content
     .nav-wrapper(style="height: 100px;")
       img.brand-logo#Logo.right(src='images/childshare_5.png', alt='Logo', style="height: 300px; margin-top: 20px;")
       ul.left.hideonmed-and-down#nav-mobile(style="height: 100%;")
-        li.navTitle(style="height: 100%;") 
+        li.navTitle(style="height: 100%;")
           a.valign-wrapper(href="home" style="height: 100%; font-size: 22px;") Home
         li.navTitle(style="height: 100%;")
           a.valign-wrapper(href="aboutUs" style="height: 100%; font-size: 22px;") About Us
@@ -17,7 +17,6 @@ block content
             a.valign-wrapper(href="provideTime" style="height: 100%; font-size: 22px;") Contribute Your Time
         li.navTitle(style="height: 100%;")
           a.valign-wrapper(href="profile" style="height: 100%; font-size: 22px;") Profile
-
 
   body
     .container
@@ -36,18 +35,17 @@ block content
       .row(style="margin-top: 40px")
         #scriptList
 
-      #chatArea
-        h1 Community Chat
+      h1.chatArea Chat
 
-        <section class="chat" style="height: 200px">
-          <p><strong>Pepito</strong>: It takes a community to...</p>
-          <p><strong>Priscilla</strong>: raise a child！</p>
-        </section>
+      <section class="chat chatArea" style="height: 200px">
+        <p><strong>Pepito</strong>: It takes a community to...</p>
+        <p><strong>Priscilla</strong>: raise a child！</p>
+      </section>
 
-        <form>
-          <input type="text" placeholder="Say something nice" />
-          <button>Send</button>
-        </form>
+      <form class="chatArea">
+        <input type="text" placeholder="Say something nice" />
+        <button>Send</button>
+      </form>
 
       <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
       <script src="javascript.js"></script>

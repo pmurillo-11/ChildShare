@@ -20,10 +20,10 @@ let timeSelected;
 // DOM Ready =============================================================
 $(document).ready(function() {
 
+    $('.chatArea').hide();
+
     // page load
     startUp();
-
-    console.log("whatever");
 
     // left button click
     $('#dateSearch').on('click', newDate);
@@ -39,12 +39,18 @@ $(document).ready(function() {
 
     });
 
-    $('.chatArea').hide();
-
 });
 
+/**
+ * @name showChat
+ * @desc shows the chat area after click
+ * @param
+ * @returns {void}
+ * @function
+ * @public
+ * @instance
+*/
 function showChat(){
-    console.log('hellow')
     $('.chatArea').show();
 }
 
@@ -103,7 +109,7 @@ function startUp(){
                     {"_id":"5dd06a7560a0b03687cccfcb",
                     "userID":"Lily",
                     "userName":"aperson",
-                    "firstName":"Matha",
+                    "firstName":"Martha",
                     "lastName":"Johnson",
                     "image": "profile3.png",
                     "userEmail":"aperson@gmail.com",
@@ -151,12 +157,12 @@ function buildInterface(){
 
     let show ='';
 
-    show += '<table id = "mytable" class = "mybigtable sortable striped" >';
-    show += '<tr ><th class = "revTableCell center" style="padding-top: 20px; padding-bottom: 20px;">FAMILY</th>';
-    show += '<th class = "revTableCell center">LOCATION</th>';
-    show += '<th class = "revTableCell center">CHILDREN</th>';
-    show += '<th class = "revTableCell center">INFO</th>';
-    show += '<th class = "revTableCell center">CONTACT</th>';
+    show += '<table id = "mytable" class="mybigtable striped" >';
+    show += '<tr ><th class = "revTableCell tableHeader center" style="padding-top: 20px; padding-bottom: 20px;">FAMILY</th>';
+    show += '<th class = "revTableCell tableHeader center">LOCATION</th>';
+    show += '<th class = "revTableCell tableHeader center">CHILDREN</th>';
+    show += '<th class = "revTableCell tableHeader center">INFO</th>';
+    show += '<th class = "revTableCell tableHeader center">CONTACT</th>';
 
     // filter out unavailable users
     $.each(users, function(key, value) {
@@ -209,7 +215,7 @@ function buildRow(value){
 
     let show = '';
 
-    show += '<tr><td class = "revTableCell center"><img style="height: 200px;" src="./images/' + value.image + '"><br><div style="font-size: 22px;;">' + value.firstName + ' ' + value.lastName + '</div></td>';
+    show += '<tr><td class = "revTableCell center"><img style="height: 200px; margin-top: 15px;" src="./images/' + value.image + '"><br><div style="font-size: 22px;;">' + value.firstName + ' ' + value.lastName + '</div></td>';
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
     show += '<td class = "revTableCell">' + value.info + '</td>';

@@ -205,3 +205,11 @@ button:hover {
 .mybigtable tr:nth-child(even) {
     background-color: #E8DB71;
 }
+
+.tableHeader {
+    background-color: #91C1AA;
+    color: white !important;
+    font-weight: 100;
+    padding-left: 15px;
+    padding-right: 15px;
+}
