@@ -86,7 +86,7 @@ function startUp(){
                 "lastName":"Sparrow",
                 "image": "profile_1.png",
                 "userEmail":"aperson@gmail.com",
-                "locationCity":"Vista",
+                "locationCity":"La Jolla",
                 "secretCode":"tbd",
                 "available": [  {date: new Date(), startTime: new Date().setHours(today.getHours() + 1), endTime: new Date().setHours(today.getHours() + 12)},
                                 {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours()), endTime: new Date().setHours(oneAfter.getHours() + 12)}],

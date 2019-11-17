@@ -33,10 +33,25 @@ $(document).ready(function() {
 */
 function startUp(){
 
-// determine which item we're on by using the path
-let documentNumber = (window.location.pathname).split('/')[2];
-// deal with special characters, etc in url
-documentNumber = decodeURIComponent(documentNumber);
-console.log(window.location.pathname, documentNumber);
+    let show = '';
+    // determine which item we're on by using the path
+    let name = (window.location.pathname).split('/')[2];
+    // deal with special characters, etc in url
+    name = decodeURIComponent(name);
+    console.log(name);
+    let fileName;
+
+    if( name == 'Frank' ){
+        fileName = 'profilefrank.png';
+    } else if( name == 'Carol' ){
+        fileName = 'profilecarol.png';
+    } else if( name == 'Martha' ){
+        fileName = 'profilemartha.png';
+    } else {
+        fileName = 'profilefrank.png';
+    }
+
+    show += '<img class="center" style="height: 900px; margin-top: 15px;" src="../images/' + fileName + '">';
+    $('#imageHere').html( show );
 
 }; // end startUp
