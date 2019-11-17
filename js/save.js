@@ -5,14 +5,14 @@
 */
 
 /**
- * @name      newScript
- * @desc      Saves a new entry.
+ * @name      newUser
+ * @desc      Saves a new user.
  * @param     urlAndCollection - the URL collection to save too, e.g. 'parse/addscript/' + scriptlist, figure out the path
  * @param     entry - the Object being updated
  * @param     next - allows you to wait for response before continuing the rest of the program (a callback)
  * @returns   response - the json object, should be same as objectTemplates.json
 */
-let newScript = function(urlAndCollection, entry, next) {
+let newUser = function(urlAndCollection, entry, next) {
 
     // Use AJAX to post the object to our service
     $.ajax({
@@ -119,69 +119,6 @@ let saveEntry = function(item, thisObject, templates, event, next) {
 
 }; // end saveEntry
 
-/**
- * @name      saveOldEntry
- * @desc      Function to save an entry to the deleted collection database before it is updated.
- *            adds the old _id and the date changed to the object
- * @param     obj - the object being saved, must include _id field
- * @param     collection - the collection that the record belongs to
- * @param     next - a callback, it is blank
- * @returns
-*/
-let saveOldEntry = function(obj, collection, next) {
-
-    //console.log(obj, collection);
-    let find = { _id: obj._id };
-
-    $.ajax({
-      type: 'GET',
-      data: find,
-      url: '../parse/getrecords/' + collection,
-      dataType: 'JSON'
-    }).done(function( res ) {
-      //console.log('saveOldEntry - Get:', obj._id, ' response:', res);
-      // Check for response, note since we are searching by id, there should only be one response
-      if ( res ) {
-        // first save old id
-        res[0].old_id = res[0]._id;
-        // then delete id from object
-        delete res[0]._id;
-        // save the collection
-        res[0].old_collection = collection;
-        // add date changed to object
-        res[0].changed_date = new Date();
-        //console.log('saveOldEntry - Get:', obj._id, ' response:', res);
-
-        // now save it to the deleted records database
-        let deletedCollection = 'deletedRecords';
-
-        $.ajax({
-          type: 'POST',
-          data: res[0],
-          url: '../parse/addscript/' + deletedCollection,
-          dataType: 'JSON',
-          //traditional: true
-        }).done(function( response ) {
-
-        // Check for a successful (blank) response
-          if (response.msg === '') {
-          } else {
-            alert('Error: ' + JSON.stringify(response));
-          };
-        });
-
-        // I don't think we need to wait for the write operation to finish
-        // to continue the previous task
-        // add timeout to address AUT-1391
-        setTimeout(() => {
-            next();
-        }, 50);
-
-      } else {
-        alert('Error: ' + response.msg);
-      }
-    });
-  }; // end saveOldEntry
 
 // https://stackoverflow.com/questions/10934664/convert-string-in-dot-notation-to-get-the-object-reference
 let setObjByString = function(obj, str, val) {
@@ -212,7 +149,6 @@ let setObjByString = function(obj, str, val) {
 }; // end setObjByString
 
 module.exports = {
-    'newScript': newScript,
+    'newUser': newUser,
     'saveEntry': saveEntry,
-    'saveOldEntry': saveOldEntry
 };
