@@ -40,17 +40,6 @@ $(document).ready(function() {
         }
     });
 
-    $('#calendar').tuiCalendar({
-        defaultView: 'month',
-        taskView: true,
-        template: {
-          monthDayname: function(dayname) {
-            return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
-          }
-
-        }
-      });
-
 });
 
 
@@ -69,8 +58,21 @@ function startUp(){
     showDateSelector();
 
     help.getEntireCollection(scriptCollection, {}, function(next){;
-        console.log(next);
-        scripts = next;
+        //console.log(next);
+        // use fake data instead of database
+        //scripts = next;
+        scripts = [{"_id":"5dd06a7560a0b03687cccfcb",
+                    "userID":"aperson",
+                    "userName":"aperson",
+                    "firstName":"A",
+                    "lastName":"Person",
+                    "image": "family_1.png",
+                    "userEmail":"aperson@gmail.com",
+                    "locationCity":"San Diego",
+                    "secretCode":"tbd",
+                    "rank":"1",
+                    "children":[{"name":"Mustard","age":"4"}]}]
+        console.log(scripts)
         buildInterface();
     });
 
@@ -210,7 +212,7 @@ function buildRow(value){
 
     let show = '';
 
-    show += '<tr><td class = "revTableCell">' + value.firstName + ' ' + value.lastName + '</td>';
+    show += '<tr><td class = "revTableCell"><img src="./images/' + value.image + '"> \n' + value.firstName + ' ' + value.lastName + '</td>';
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
     show += '<td class = "revTableCell">' + '</td>';
