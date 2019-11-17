@@ -93,7 +93,7 @@ function startUp(){
                     "userID":"Lily",
                     "userName":"aperson",
                     "firstName":"Lily",
-                    "lastName":"White",
+                    "lastName":"Nguyen",
                     "image": "profile3.png",
                     "userEmail":"aperson@gmail.com",
                     "locationCity":"San Diego",
