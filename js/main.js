@@ -143,6 +143,10 @@ function newDate(event){
         dateSelected.setDate(dateSelected.getDate()-1);
     }
 
+    if (event.currentTarget.id.includes('Right')){
+        dateSelected.setDate(dateSelected.getDate()-1);
+    }
+
     showDateSelector();
 }
 
