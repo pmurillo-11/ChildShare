@@ -28,6 +28,8 @@ $(document).ready(function() {
     // left button click
     $('#dateSearch').on('click', newDate);
 
+    $('#chaticon').on('click', showChat);
+
     $('.datepicker').datepicker({
         defaultDate: new Date(),
         setDefaultDate: true
@@ -38,6 +40,10 @@ $(document).ready(function() {
     });
 
 });
+
+function showChat(){
+    console.log('hellow')
+}
 
 /**
  * @name startUp
@@ -56,55 +62,55 @@ function startUp(){
         //users = next;
 
         // this is the mocked data, dynamic dates so the display works reasonably during the presentation
-    let today = new Date();
-    let oneAfter = new Date();
-    let twoAfter = new Date();
-    oneAfter = new Date(oneAfter.setDate(today.getDate()+1));
-    twoAfter = twoAfter.setDate(today.getDate()+2);
+        let today = new Date();
+        let oneAfter = new Date();
+        let twoAfter = new Date();
+        oneAfter = new Date(oneAfter.setDate(today.getDate()+1));
+        twoAfter = twoAfter.setDate(today.getDate()+2);
 
-    users = [{"_id":"5dd06a7560a0b03687cccfcb",
-                "userID":"aperson",
-                "userName":"aperson",
-                "firstName":"Andrew",
-                "lastName":"Mustard",
-                "image": "profile_1.png",
-                "userEmail":"aperson@gmail.com",
-                "locationCity":"Vista",
-                "secretCode":"tbd",
-                "available": [  {date: today, startTime: new Date().setHours(today.getHours() + 4), endTime: new Date().setHours(today.getHours() + 12)},
-                                {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours() + 1), endTime: new Date().setHours(oneAfter.getHours() + 6)}],
-                "rank":"1",
-                "children":[{"name":"Francis","age":"3"}]},
-                {"_id":"5dd06a7560a0b03687cccfcb",
-                "userID":"aperson",
-                "userName":"aperson",
-                "firstName":"Stephanie",
-                "lastName":"Brown",
-                "image": "profile2.png",
-                "userEmail":"aperson@gmail.com",
-                "locationCity":"Pacific Beach",
-                "secretCode":"tbd",
-                "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
-                              {date: oneAfter },
-                              {date: twoAfter },],
-                "rank":"1",
-                "children":[{"name":"Erin","age":"1"}]},
-                {"_id":"5dd06a7560a0b03687cccfcb",
-                "userID":"Lily",
-                "userName":"aperson",
-                "firstName":"Lily",
-                "lastName":"Nguyen",
-                "image": "profile3.png",
-                "userEmail":"aperson@gmail.com",
-                "locationCity":"San Diego",
-                "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
-                              {date: twoAfter },],
-                "secretCode":"tbd",
-                "rank":"1",
-                "children":[{"name":"Blue","age":"4"}]},
-            ];
-    console.log("users");
-    buildInterface();
+        users = [{"_id":"5dd06a7560a0b03687cccfcb",
+                    "userID":"aperson",
+                    "userName":"aperson",
+                    "firstName":"Andrew",
+                    "lastName":"Mustard",
+                    "image": "profile_1.png",
+                    "userEmail":"aperson@gmail.com",
+                    "locationCity":"Vista",
+                    "secretCode":"tbd",
+                    "available": [  {date: today, startTime: new Date().setHours(today.getHours() + 1), endTime: new Date().setHours(today.getHours() + 12)},
+                                    {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours() + 1), endTime: new Date().setHours(oneAfter.getHours() + 6)}],
+                    "rank":"1",
+                    "children":[{"name":"Francis","age":"3"}]},
+                    {"_id":"5dd06a7560a0b03687cccfcb",
+                    "userID":"aperson",
+                    "userName":"aperson",
+                    "firstName":"Stephanie",
+                    "lastName":"Brown",
+                    "image": "profile2.png",
+                    "userEmail":"aperson@gmail.com",
+                    "locationCity":"Pacific Beach",
+                    "secretCode":"tbd",
+                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 1), endTime: new Date().setHours(new Date().getHours() + 3)},
+                                  {date: oneAfter },
+                                  {date: twoAfter },],
+                    "rank":"1",
+                    "children":[{"name":"Erin","age":"1"}]},
+                    {"_id":"5dd06a7560a0b03687cccfcb",
+                    "userID":"Lily",
+                    "userName":"aperson",
+                    "firstName":"Lily",
+                    "lastName":"Nguyen",
+                    "image": "profile3.png",
+                    "userEmail":"aperson@gmail.com",
+                    "locationCity":"San Diego",
+                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
+                                  {date: twoAfter },],
+                    "secretCode":"tbd",
+                    "rank":"1",
+                    "children":[{"name":"Blue","age":"4"}]},
+                ]
+        console.log(users);
+        buildInterface();
 
 }; // end startUp
 
@@ -201,7 +207,7 @@ function buildRow(value){
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
     show += '<td class = "revTableCell">' + '</td>';
-    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<i class="medium material-icons" style="background-color:transparent;">chat</i>' +  '</td>';
+    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<span class="chaticon"><i class="material-icons" style="background-color:transparent;">chat</i></span>' +  '</td>';
 
     return show;
 
