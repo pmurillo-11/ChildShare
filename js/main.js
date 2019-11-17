@@ -78,8 +78,9 @@ function startUp(){
 
 function showDateSelector(){
     let today = new Date();
-    $('#dateShown').html( today );
-}
+    let show = today.getMonth() + ' ' + today.getDay() + ' ' + today.getFullYear();
+    $('#dateShown').html( show );
+};
 
 /**
  * @name newScript
@@ -143,6 +144,8 @@ function buildInterface(){
     show += '<tr><th class = "revTableCell">Name</th>';
     show += '<th class = "revTableCell">Location</th>';
     show += '<th class = "revTableCell">Children</th>';
+    show += '<th class = "revTableCell">Info</th>';
+    show += '<th class = "revTableCell">Contact</th>';
     $('#newScriptButton').removeClass('invisible');
 
     $.each(scripts, function(key, value) {
@@ -207,6 +210,8 @@ function buildRow(value){
     show += '<tr><td class = "revTableCell">' + value.firstName + ' ' + value.lastName + '</td>';
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
+    show += '<td class = "revTableCell">' + '</td>';
+    show += '<td class = "revTableCell">' + '</td>';
 
     return show;
 
