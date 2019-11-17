@@ -1,7 +1,7 @@
 extends layout_common
 
 block content
-  script(type="module" src='./javascripts/main.js')
+  script(type="module" src='./javascripts/provideTime.js')
 
   nav.nav-extended(style="background-color: #91C1AA;")
     .nav-wrapper(style="height: 100px;")
@@ -21,7 +21,7 @@ block content
   body
     .container
       .row.center(style="margin-top: 40px")
-        h4 Schedule Child Share
+        h4 Provide Child Share
       .row.center(style="margin-top: 20px")
         .col.s2
         .col.s4
@@ -29,7 +29,7 @@ block content
         .col.s4
           <input type="text" class="timepicker" id="timepicker" placeholder = "select time">
         .col.s2
-            button#dateSearch.saveButton.btn.waves-effect.waves-light Search
+            button#dateSearch.saveButton.btn.waves-effect.waves-light SUBMIT
               i.material-icons.right search
 
       .row(style="margin-top: 40px")

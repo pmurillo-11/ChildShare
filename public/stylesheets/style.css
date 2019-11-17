@@ -217,8 +217,8 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     font-weight: 700;
     letter-spacing: -.01em;
     color: white;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
     vertical-align: middle;
     line-height: 100px;
 }

@@ -22,4 +22,9 @@ router.get('/aboutUs', function(req, res, next) {
   res.render('aboutUs', { title: 'Profile' });
 });
 
+
+/* GET Contribute Your Time page. */
+router.get('/provideTime', function(req, res, next) {
+  res.render('provideTime', { title: 'Provide Time' });
+});
 module.exports = router;
