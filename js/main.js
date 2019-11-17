@@ -71,8 +71,8 @@ function startUp(){
         users = [{"_id":"5dd06a7560a0b03687cccfcb",
                     "userID":"aperson",
                     "userName":"aperson",
-                    "firstName":"Andrew",
-                    "lastName":"Mustard",
+                    "firstName":"Frank",
+                    "lastName":"Sparrow",
                     "image": "profile_1.png",
                     "userEmail":"aperson@gmail.com",
                     "locationCity":"Vista",
@@ -80,32 +80,35 @@ function startUp(){
                     "available": [  {date: today, startTime: new Date().setHours(today.getHours() + 1), endTime: new Date().setHours(today.getHours() + 12)},
                                     {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours() + 1), endTime: new Date().setHours(oneAfter.getHours() + 6)}],
                     "rank":"1",
-                    "children":[{"name":"Francis","age":"3"}]},
+                    "info": "I enjoy spending mornings with my son before I head to work",
+                    "children":[{"name":"Jack","age":"7"}]},
                     {"_id":"5dd06a7560a0b03687cccfcb",
                     "userID":"aperson",
                     "userName":"aperson",
-                    "firstName":"Stephanie",
-                    "lastName":"Brown",
+                    "firstName":"Carol",
+                    "lastName":"Danvers",
                     "image": "profile2.png",
                     "userEmail":"aperson@gmail.com",
-                    "locationCity":"Pacific Beach",
+                    "locationCity":"San Marcos",
                     "secretCode":"tbd",
                     "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 1), endTime: new Date().setHours(new Date().getHours() + 3)},
                                   {date: oneAfter },
                                   {date: twoAfter },],
                     "rank":"1",
-                    "children":[{"name":"Erin","age":"1"}]},
+                    "info":"I'm a first time mom looking to expand my circle of support",
+                    "children":[{"name":"Harper","age":"1"}]},
                     {"_id":"5dd06a7560a0b03687cccfcb",
                     "userID":"Lily",
                     "userName":"aperson",
-                    "firstName":"Lily",
-                    "lastName":"Nguyen",
+                    "firstName":"Matha",
+                    "lastName":"Johnson",
                     "image": "profile3.png",
                     "userEmail":"aperson@gmail.com",
-                    "locationCity":"San Diego",
+                    "locationCity":"Oceanside",
                     "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
                                   {date: twoAfter },],
                     "secretCode":"tbd",
+                    "info": "I'm a stay at home mom with evening availability",
                     "rank":"1",
                     "children":[{"name":"Blue","age":"4"}]},
                 ]
@@ -206,8 +209,8 @@ function buildRow(value){
     show += '<tr><td class = "revTableCell center"><img style="height: 200px;" src="./images/' + value.image + '"><br><div style="font-size: 22px;;">' + value.firstName + ' ' + value.lastName + '</div></td>';
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
-    show += '<td class = "revTableCell">' + '</td>';
-    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<span class="chaticon"><i class="material-icons" style="background-color:transparent;">chat</i></span>' +  '</td>';
+    show += '<td class = "revTableCell">' + value.info + '</td>';
+    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<span class="chaticon"><i class="medium material-icons" style="background-color:transparent;">chat</i></span>' +  '</td>';
 
     return show;
 
