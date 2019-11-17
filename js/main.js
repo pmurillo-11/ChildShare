@@ -110,7 +110,7 @@ function startUp(){
                     "secretCode":"tbd",
                     "info": "I'm a stay at home mom with evening availability",
                     "rank":"1",
-                    "children":[{"name":"Blue","age":"4"}]},
+                    "children":[{"name":"Lily","age":"4"}]},
                 ]
         console.log(users);
         buildInterface();
