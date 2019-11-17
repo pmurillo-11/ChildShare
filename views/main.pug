@@ -36,17 +36,18 @@ block content
       .row(style="margin-top: 40px")
         #scriptList
 
-      <h1>Community Chat</h1>
+      #chatArea
+        h1 Community Chat
 
-      <section class="chat" style="height: 200px">
-        <p><strong>Pepito</strong>: It takes a community to...</p>
-        <p><strong>Priscilla</strong>: raise a child！</p>
-      </section>
+        <section class="chat" style="height: 200px">
+          <p><strong>Pepito</strong>: It takes a community to...</p>
+          <p><strong>Priscilla</strong>: raise a child！</p>
+        </section>
 
-      <form>
-        <input type="text" placeholder="Say something nice" />
-        <button>Send</button>
-      </form>
+        <form>
+          <input type="text" placeholder="Say something nice" />
+          <button>Send</button>
+        </form>
 
       <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
       <script src="javascript.js"></script>

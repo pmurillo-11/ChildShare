@@ -28,7 +28,7 @@ $(document).ready(function() {
     // left button click
     $('#dateSearch').on('click', newDate);
 
-    $('#chaticon').on('click', showChat);
+    $('.chaticon').on('click', showChat);
 
     $('.datepicker').datepicker({
         defaultDate: new Date(),
@@ -39,10 +39,13 @@ $(document).ready(function() {
 
     });
 
+    $('.chatArea').hide();
+
 });
 
 function showChat(){
     console.log('hellow')
+    $('.chatArea').show();
 }
 
 /**
