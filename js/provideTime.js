@@ -44,11 +44,11 @@ $(document).ready(function() {
     });
 
     $('.timepicker').timepicker({
-
+        autoClose: true,
     });
 
     $('.timepicker2').timepicker({
-
+        autoClose: true,
     });
 
 });

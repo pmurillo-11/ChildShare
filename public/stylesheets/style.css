@@ -139,6 +139,10 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
@@ -146,6 +150,8 @@ main {
   max-width: 500px;
   margin: 0 auto;
   font-family: Helvetica, Arial, Sans, sans-serif;
+
+  flex: 1 0 auto;
 }
 
 h1, .user-count {

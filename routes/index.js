@@ -24,7 +24,7 @@ router.get('/profile', function(req, res, next) {
 
 /* GET About Us page. */
 router.get('/aboutUs', function(req, res, next) {
-  res.render('aboutUs', { title: 'Profile' });
+  res.render('aboutUs', { title: 'About Us' });
 });
 
 

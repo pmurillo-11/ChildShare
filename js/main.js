@@ -20,8 +20,6 @@ let timeSelected;
 // DOM Ready =============================================================
 $(document).ready(function() {
 
-    $('.chatArea').hide();
-
     // page load
     startUp();
 
@@ -32,10 +30,13 @@ $(document).ready(function() {
 
     $('.datepicker').datepicker({
         defaultDate: new Date(),
-        setDefaultDate: true
+        setDefaultDate: true,
+        autoClose: true,
+        minDate: new Date()
     });
 
     $('.timepicker').timepicker({
+        autoClose: true,
 
     });
 
@@ -50,9 +51,12 @@ $(document).ready(function() {
  * @public
  * @instance
 */
-function showChat(){
+function showChat(elem){
+    let name = elem.target.id;
+    console.log(name)
+    $('.chatTitle').text('Chat with ' + name);
     $('.chatArea').show();
-}
+};
 
 /**
  * @name startUp
@@ -64,7 +68,6 @@ function showChat(){
  * @instance
 */
 function startUp(){
-    console.log("in startUp");
 
     dateSelected = new Date();
         // right now we will use mocked data for the presentation
@@ -121,7 +124,6 @@ function startUp(){
                     "rank":"1",
                     "children":[{"name":"Lily","age":"4"}]},
                 ]
-        console.log(users);
         buildInterface();
 
 }; // end startUp
@@ -139,10 +141,9 @@ function newDate(){
 
     dateSelected = $('#datepicker').val();
     timeSelected = $('#timepicker').val();
-    console.log(dateSelected, timeSelected)
-
+    M.toast({html: 'Search updated', classes: 'rounded'})
     buildInterface();
-}
+};
 
 /**
  * @name buildInterface
@@ -154,7 +155,7 @@ function newDate(){
  * @instance
 */
 function buildInterface(){
-
+    $('.chatArea').hide();
     let show ='';
 
     show += '<table id = "mytable" class="mybigtable striped" >';
@@ -172,15 +173,15 @@ function buildInterface(){
         if ( timeSelected ){
             t = Date.parse(dateSelected + ' ' + timeSelected);
         }
-
+        console.log(value.available)
         // filter table based on search if there is a search entered
         if( value.available ){
 
             for(let i = 0; i < value.available.length; i++){
-                console.log(value.available[i].date, timeSelected)
+                //console.log(value.available[i].date, timeSelected)
                 if( new Date(value.available[i].date).getDate() == d.getDate() &&
-                    value.available[i].date.getMonth() == d.getMonth() &&
-                    value.available[i].date.getFullYear() == d.getFullYear()){
+                    new Date(value.available[i].date).getMonth() == d.getMonth() &&
+                    new Date(value.available[i].date).getFullYear() == d.getFullYear()){
 
                     // if no time is selected show all for that date, else sort out by time
                     if ( timeSelected && t &&
@@ -219,7 +220,7 @@ function buildRow(value){
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
     show += '<td class = "revTableCell">' + value.info + '</td>';
-    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<span class="chaticon"><i class="medium material-icons" style="background-color:transparent;">chat</i></span>' +  '</td>';
+    show += '<td class = "revTableCell" style="max-width: 200px;"><span class="chaticon"><i class="medium material-icons" id="' + value.firstName + '" style="background-color:transparent;">chat</i></span>' +  '</td>';
 
     return show;
 
