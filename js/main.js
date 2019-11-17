@@ -26,7 +26,9 @@ $(document).ready(function() {
     // left button click
     $('#dateSearch').on('click', newDate);
 
-    $('.chaticon').on('click', showChat);
+    $(".chaticon").on("click", function(event){
+        showChat(event);
+    });
 
     $('.datepicker').datepicker({
         defaultDate: new Date(),
@@ -37,7 +39,6 @@ $(document).ready(function() {
 
     $('.timepicker').timepicker({
         autoClose: true,
-
     });
 
 });
@@ -53,7 +54,6 @@ $(document).ready(function() {
 */
 function showChat(elem){
     let name = elem.target.id;
-    console.log(name)
     $('.chatTitle').text('Chat with ' + name);
     $('.chatArea').show();
 };
@@ -90,7 +90,7 @@ function startUp(){
                     "locationCity":"Vista",
                     "secretCode":"tbd",
                     "available": [  {date: today, startTime: new Date().setHours(today.getHours() + 1), endTime: new Date().setHours(today.getHours() + 12)},
-                                    {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours() + 1), endTime: new Date().setHours(oneAfter.getHours() + 6)}],
+                                    {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours() + 1), endTime: new Date().setHours(oneAfter.getHours() + 12)}],
                     "rank":"1",
                     "info": "I enjoy spending mornings with my son before I head to work",
                     "children":[{"name":"Jack","age":"7"}]},
@@ -141,7 +141,7 @@ function newDate(){
 
     dateSelected = $('#datepicker').val();
     timeSelected = $('#timepicker').val();
-    M.toast({html: 'Search updated', classes: 'rounded'})
+    M.toast({html: 'Search updated', classes: 'rounded'});
     buildInterface();
 };
 
@@ -155,7 +155,10 @@ function newDate(){
  * @instance
 */
 function buildInterface(){
+
+    // hide chat until we have someone to chat with
     $('.chatArea').hide();
+
     let show ='';
 
     show += '<table id = "mytable" class="mybigtable striped" >';
@@ -173,7 +176,7 @@ function buildInterface(){
         if ( timeSelected ){
             t = Date.parse(dateSelected + ' ' + timeSelected);
         }
-        console.log(value.available)
+        //console.log(value.available)
         // filter table based on search if there is a search entered
         if( value.available ){
 
@@ -200,6 +203,10 @@ function buildInterface(){
 
     show += '</tr></table>';
     $('#scriptList').html( show );
+
+    $(".chaticon").on("click", function(event){
+        showChat(event);
+    });
 
 }; // end buildInterface
 

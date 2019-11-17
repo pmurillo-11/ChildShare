@@ -35,12 +35,14 @@ $(document).ready(function() {
 
     $('.datepicker').datepicker({
         defaultDate: new Date(),
-        setDefaultDate: true
+        setDefaultDate: true,
+        autoClose: true,
     });
 
     $('.datepicker2').datepicker({
         defaultDate: new Date(),
-        setDefaultDate: true
+        setDefaultDate: true,
+        autoClose: true,
     });
 
     $('.timepicker').timepicker({
@@ -96,7 +98,7 @@ function newAvailability(){
     dateAvailabity.push([dateSelected]);
     timeAvalabilitiesStart.push(startTimeSelected);
     timeAvalabilitiesEnd.push(endTimeSelected);
-   // alert("Thanks for contributing!");
+    M.toast({html: 'Thank you for contributing!', classes: 'rounded'})
     let today = new Date();
 
     let show ='';
@@ -108,7 +110,7 @@ function newAvailability(){
     show += '<th class = "revTableCell tableHeader center">DATE</th>';
     show += '<th class = "revTableCell tableHeader center">START TIME</th>';
     show += '<th class = "revTableCell tableHeader center">END TIME</th>';
- 
+
     var i;
     for (i = 0; i < timeAvalabilitiesStart.length; i++) {
         show += buildRow(dateAvailabity[i], timeAvalabilitiesStart[i], timeAvalabilitiesEnd[i]);
