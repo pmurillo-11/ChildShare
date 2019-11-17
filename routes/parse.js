@@ -26,22 +26,6 @@ router.get('/templates', function(req, res) {
 }); // end /templates
 
 /**
- * @name      /localscreenshotlist
- * @desc      Function to get all the filenames from the called out directory
- * @param     req is not used
- * @returns   res an array of file names in the specified directory
-*/
-router.get('/localscreenshotlist', function(req, res) {
-
-  const folder = path.join(__dirname, '../public/screenshots/');
-
-  fs.readdir(folder, (err, files) => {
-    res.json(files);
-  });
-
-}); // end /localscreenshotlist
-
-/**
  * @name      /collectionsize
  * @desc      Function to count records in the database collection.
  * @param     :collection the database collection to be used

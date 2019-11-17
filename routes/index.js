@@ -12,4 +12,9 @@ router.get('/', function(req, res, next) {
   res.render('main', { title: 'ChildShare' });
 });
 
+/* GET main page. */
+router.get('/profile', function(req, res, next) {
+  res.render('main', { title: 'Profile' });
+});
+
 module.exports = router;
