@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 /* GET main page. */
 router.get('/profile', function(req, res, next) {
-  res.render('main', { title: 'Profile' });
+  res.render('profile', { title: 'Profile' });
 });
 
 module.exports = router;

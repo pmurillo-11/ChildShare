@@ -43,9 +43,17 @@ $(document).ready(function() {
         }
     });
 
+
+    $('.datepicker').datepicker({
+        defaultDate: new Date(),
+        setDefaultDate: true
+    });
+
+    $('.timepicker').timepicker({
+
+    });
+
 });
-
-
 
 /**
  * @name startUp

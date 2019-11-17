@@ -11,16 +11,21 @@ block content
         li.navTitle(style="height: 100%; margin-left: 200px;") About Us
         li.navTitle.active(style="height: 100%; margin-left: 200px;") Get Matched
         li.navTitle(style="height: 100%; margin-left: 200px;")
-          a.valign-wrapper(href="./profile" style="height: 100%;") Profile
+          a.valign-wrapper(href="profile" style="height: 100%; font-size: 22px;") Profile
 
 
   body
     .container
-      .row.valign-wrapper
-        .col.s2(style="font-size: 2em; margin-top: 20px;") Date Needed
-        .col.s2.i.material-icons#dateLeft(style="font-size:10em") keyboard_arrow_left
-        .col.s4.center#dateShown(style="font-size:2em")
-        .col.s4.i.material-icons#dateRight(style="font-size:10em") keyboard_arrow_right
+      .row.center
+        h5 Schedule Child Share
+      .row.center(style="margin-top: 20px")
+        .col.s2
+        .col.s4
+          <input type="text" class="datepicker" id="datepicker">
+        .col.s4
+          <input type="text" class="timepicker" id="timepicker" placeholder = "select time" style="color: black;">
+
+
       .row
         #scriptList
 

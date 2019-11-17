@@ -580,3 +580,8 @@ button:hover {
     width: 150px;
   }
 }
+
+::placeholder {
+    color: black;
+    opacity: 1;
+}
