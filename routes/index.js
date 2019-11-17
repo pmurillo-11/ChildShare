@@ -18,9 +18,10 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET Profile page. */
-router.get('/profile', function(req, res, next) {
+router.get('/profile/:number', function(req, res, next) {
   res.render('profile', { title: 'Profile' });
 });
+
 
 /* GET About Us page. */
 router.get('/aboutUs', function(req, res, next) {

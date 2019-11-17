@@ -33,6 +33,10 @@ $(document).ready(function() {
 */
 function startUp(){
 
-
+// determine which item we're on by using the path
+let documentNumber = (window.location.pathname).split('/')[2];
+// deal with special characters, etc in url
+documentNumber = decodeURIComponent(documentNumber);
+console.log(window.location.pathname, documentNumber);
 
 }; // end startUp

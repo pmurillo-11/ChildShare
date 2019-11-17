@@ -70,61 +70,60 @@ function showChat(elem){
 function startUp(){
 
     dateSelected = new Date();
-        // right now we will use mocked data for the presentation
-        //users = next;
+    // right now we will use mocked data for the presentation
 
-        // this is the mocked data, dynamic dates so the display works reasonably during the presentation
-        let today = new Date();
-        let oneAfter = new Date();
-        let twoAfter = new Date();
-        oneAfter = new Date(oneAfter.setDate(today.getDate()+1));
-        twoAfter = twoAfter.setDate(today.getDate()+2);
+    // this is the mocked data, dynamic dates so the display works reasonably during the presentation
+    let today = new Date();
+    let oneAfter = new Date();
+    let twoAfter = new Date();
+    oneAfter = new Date(oneAfter.setDate(today.getDate()+1));
+    twoAfter = twoAfter.setDate(today.getDate()+2);
 
-        users = [{"_id":"5dd06a7560a0b03687cccfcb",
-                    "userID":"aperson",
-                    "userName":"aperson",
-                    "firstName":"Frank",
-                    "lastName":"Sparrow",
-                    "image": "profile_1.png",
-                    "userEmail":"aperson@gmail.com",
-                    "locationCity":"Vista",
-                    "secretCode":"tbd",
-                    "available": [  {date: today, startTime: new Date().setHours(today.getHours() + 1), endTime: new Date().setHours(today.getHours() + 12)},
-                                    {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours() + 1), endTime: new Date().setHours(oneAfter.getHours() + 12)}],
-                    "rank":"1",
-                    "info": "I enjoy spending mornings with my son before I head to work",
-                    "children":[{"name":"Jack","age":"7"}]},
-                    {"_id":"5dd06a7560a0b03687cccfcb",
-                    "userID":"aperson",
-                    "userName":"aperson",
-                    "firstName":"Carol",
-                    "lastName":"Danvers",
-                    "image": "profile2.png",
-                    "userEmail":"aperson@gmail.com",
-                    "locationCity":"San Marcos",
-                    "secretCode":"tbd",
-                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 1), endTime: new Date().setHours(new Date().getHours() + 3)},
-                                  {date: oneAfter },
-                                  {date: twoAfter },],
-                    "rank":"1",
-                    "info":"I'm a first time mom looking to expand my circle of support",
-                    "children":[{"name":"Harper","age":"1"}]},
-                    {"_id":"5dd06a7560a0b03687cccfcb",
-                    "userID":"Lily",
-                    "userName":"aperson",
-                    "firstName":"Martha",
-                    "lastName":"Johnson",
-                    "image": "profile3.png",
-                    "userEmail":"aperson@gmail.com",
-                    "locationCity":"Oceanside",
-                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
-                                  {date: twoAfter },],
-                    "secretCode":"tbd",
-                    "info": "I'm a stay at home mom with evening availability",
-                    "rank":"1",
-                    "children":[{"name":"Lily","age":"4"}]},
-                ]
-        buildInterface();
+    users = [{"_id":"5dd06a7560a0b03687cccfcb",
+                "userID":"aperson",
+                "userName":"aperson",
+                "firstName":"Frank",
+                "lastName":"Sparrow",
+                "image": "profile_1.png",
+                "userEmail":"aperson@gmail.com",
+                "locationCity":"Vista",
+                "secretCode":"tbd",
+                "available": [  {date: new Date(), startTime: new Date().setHours(today.getHours() + 1), endTime: new Date().setHours(today.getHours() + 12)},
+                                {date: oneAfter, startTime: new Date().setHours(oneAfter.getHours()), endTime: new Date().setHours(oneAfter.getHours() + 12)}],
+                "rank":"1",
+                "info": "I enjoy spending mornings with my son before I head to work",
+                "children":[{"name":"Jack","age":"7"}]},
+                {"_id":"5dd06a7560a0b03687cccfcb",
+                "userID":"aperson",
+                "userName":"aperson",
+                "firstName":"Carol",
+                "lastName":"Danvers",
+                "image": "profile2.png",
+                "userEmail":"aperson@gmail.com",
+                "locationCity":"San Marcos",
+                "secretCode":"tbd",
+                "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 1), endTime: new Date().setHours(new Date().getHours() + 3)},
+                                {date: oneAfter },
+                                {date: twoAfter }],
+                "rank":"1",
+                "info":"I'm a first time mom looking to expand my circle of support",
+                "children":[{"name":"Harper","age":"1"}]},
+                {"_id":"5dd06a7560a0b03687cccfcb",
+                "userID":"Lily",
+                "userName":"aperson",
+                "firstName":"Martha",
+                "lastName":"Johnson",
+                "image": "profile3.png",
+                "userEmail":"aperson@gmail.com",
+                "locationCity":"Oceanside",
+                "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
+                                {date: twoAfter }],
+                "secretCode":"tbd",
+                "info": "I'm a stay at home mom with evening availability",
+                "rank":"1",
+                "children":[{"name":"Lily","age":"4"}]},
+            ]
+    buildInterface();
 
 }; // end startUp
 
@@ -176,7 +175,7 @@ function buildInterface(){
         if ( timeSelected ){
             t = Date.parse(dateSelected + ' ' + timeSelected);
         }
-        //console.log(value.available)
+        console.log(value.available, d, t)
         // filter table based on search if there is a search entered
         if( value.available ){
 
@@ -223,7 +222,7 @@ function buildRow(value){
 
     let show = '';
 
-    show += '<tr><td class = "revTableCell center"><img style="height: 200px; margin-top: 15px;" src="./images/' + value.image + '"><br><div style="font-size: 22px;;">' + value.firstName + ' ' + value.lastName + '</div></td>';
+    show += '<tr><td class = "revTableCell center"><a href="/profile/' + value.firstName + '"><img style="height: 200px; margin-top: 15px;" src="./images/' + value.image + '"></a><br><div style="font-size: 22px;;">' + value.firstName + ' ' + value.lastName + '</div></td>';
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
     show += '<td class = "revTableCell">' + value.info + '</td>';
