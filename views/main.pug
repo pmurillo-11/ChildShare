@@ -24,34 +24,23 @@ block content
       <div id="calendar" style="height: 800px;"></div>
       //<iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-    <html>
-      
-      <body>
+      <header>
+      <h1>Community Chat</h1>
+      </header>
+    
+      <section class="chat">
+        <p><strong>Pepito</strong>: It takes a community to...</p>
+        <p><strong>Priscilla</strong>: raise a child！</p>
+      </section>
+    
+      <form>
+        <input type="text" placeholder="Say something nice" />
+        <button>Send</button>
+      </form>
 
-        <main>
-            <header>
-             
-              <h1>Community Chat</h1>
-            </header>
-          
-            <section class="chat">
-              <p><strong>Pepito</strong>: It takes a community to...</p>
-              <p><strong>Priscilla</strong>: raise a child！</p>
-            </section>
-          
-            <form>
-              <input type="text" placeholder="Say something nice" />
-              <button>Send</button>
-            </form>
-        </main>
-
-        <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-        <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
-        <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
-        <script src="javascript.js"></script>
-      </body>
-    </html>
+      <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
+      <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
+      <script src="javascript.js"></script>
 
   footer
     .footer-copyright(style="margin-top: 50px;")
