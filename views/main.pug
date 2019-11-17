@@ -5,7 +5,7 @@ block content
 
   nav.nav-extended(style="background-color: #91C1AA;")
     .nav-wrapper(style="height: 100px;")
-      img.brand-logo#Logo.right(src='images/childshare_5.png', alt='Logo', style="height: 300px;")
+      img.brand-logo#Logo.right(src='images/childshare_5.png', alt='Logo', style="height: 300px; margin-top: 20px;")
       ul.left.hideonmed-and-down#nav-mobile(style="height: 100%;")
         li.navTitle(style="height: 100%; margin-left: 200px;") Mission
         li.navTitle(style="height: 100%; margin-left: 200px;") About Us
@@ -16,14 +16,18 @@ block content
 
   body
     .container
-      .row.center
-        h5 Schedule Child Share
+      .row.center(style="margin-top: 40px")
+        h4 Schedule Child Share
       .row.center(style="margin-top: 20px")
         .col.s2
         .col.s4
           <input type="text" class="datepicker" id="datepicker">
         .col.s4
-          <input type="text" class="timepicker" id="timepicker" placeholder = "select time" style="color: black;">
+          <input type="text" class="timepicker" id="timepicker" placeholder = "select time">
+        .col.s2
+            button#dateSearch.saveButton.btn.waves-effect.waves-light Search
+              i.material-icons.right search
+
 
 
       .row

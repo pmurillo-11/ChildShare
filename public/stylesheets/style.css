@@ -73,7 +73,8 @@
 }
 
 .revTableCell {
-    border: 1px solid black;
+    border: 1px solid #8999A1;
+    background-color: #91C1AA;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;

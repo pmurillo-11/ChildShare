@@ -26,8 +26,7 @@ $(document).ready(function() {
     startUp();
 
     // left button click
-    $('#dateLeft').on('click', newDate);
-    $('#dateRight').on('click', newDate);
+    $('#dateSearch').on('click', newDate);
 
     // search bar inputs, search bar uses chips, see:
     // https://materializecss.com/chips.html
@@ -67,7 +66,6 @@ $(document).ready(function() {
 function startUp(){
 
     dateSelected = new Date();
-    showDateSelector();
 
     help.getEntireCollection(scriptCollection, {}, function(next){;
         //console.log(next);
@@ -78,14 +76,39 @@ function startUp(){
                     "userName":"aperson",
                     "firstName":"A",
                     "lastName":"Person",
-                    "image": "family_1.png",
+                    "image": "profile_1.png",
+                    "userEmail":"aperson@gmail.com",
+                    "locationCity":"San Diego",
+                    "secretCode":"tbd",
+                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)}],
+                    "rank":"1",
+                    "children":[{"name":"Mustard","age":"4"}]},
+                    {"_id":"5dd06a7560a0b03687cccfcb",
+                    "userID":"aperson",
+                    "userName":"aperson",
+                    "firstName":"A",
+                    "lastName":"Person",
+                    "image": "profile2.png",
                     "userEmail":"aperson@gmail.com",
                     "locationCity":"San Diego",
                     "secretCode":"tbd",
                     "rank":"1",
-                    "children":[{"name":"Mustard","age":"4"}]}]
+                    "children":[{"name":"Mustard","age":"4"}]},
+                    {"_id":"5dd06a7560a0b03687cccfcb",
+                    "userID":"aperson",
+                    "userName":"aperson",
+                    "firstName":"A",
+                    "lastName":"Person",
+                    "image": "profile3.png",
+                    "userEmail":"aperson@gmail.com",
+                    "locationCity":"San Diego",
+                    "secretCode":"tbd",
+                    "rank":"1",
+                    "children":[{"name":"Mustard","age":"4"}]},
+                ]
         console.log(scripts)
         buildInterface();
+
     });
 
 }; // end startUp
@@ -145,17 +168,11 @@ function newScript(){
 
 function newDate(event){
 
-    console.log(event.currentTarget.id)
+    dateSelected = $('#datepicker').val();
+    let timeSelected = $('#timepicker').val();
+    console.log(dateSelected, timeSelected)
 
-    if (event.currentTarget.id.includes('Left')){
-        dateSelected.setDate(dateSelected.getDate()-1);
-    }
-
-    if (event.currentTarget.id.includes('Right')){
-        dateSelected.setDate(dateSelected.getDate()-1);
-    }
-
-    showDateSelector();
+    //updateTable();
 }
 
 /**
@@ -172,8 +189,8 @@ function buildInterface(){
     let show ='';
 
     //show += '<button id="newScriptButton" class="leftButton topAndBottom" type="button">NEW SCRIPT</button>';
-    show += '<table id = "mytable" class = "sortable">';
-    show += '<tr><th class = "revTableCell">Name</th>';
+    show += '<table id = "mytable" class = "sortable" >';
+    show += '<tr"><th class = "revTableCell">Name</th>';
     show += '<th class = "revTableCell">Location</th>';
     show += '<th class = "revTableCell">Children</th>';
     show += '<th class = "revTableCell">Info</th>';
@@ -182,37 +199,15 @@ function buildInterface(){
 
     $.each(scripts, function(key, value) {
 
+        let d = new Date(dateSelected)
+
+        console.log(d)
         // filter table based on search if there is a search entered
-        if ( searches.length > 0 ) {
+        console.log(new Date(dateSelected).getTime(), value.available[0].date.getDate())
+        if( value.available && value.available[0].date.getDate() == d.getDate() && value.available[0].date.getMonth() == d.getMonth() && value.available[0].date.getFullYear() == d.getFullYear() ){
 
-            let rowContent = value.id + ' ' + ' ' + value.category + ' ' + value.productcategory + ' ' + value.title;
-            rowContent = rowContent.toLowerCase();
-
-            for ( let i = 0; i < searches.length; i++ ) {
-
-                // they would like to default to AND search unless there is a *
-                if ( searches.indexOf('*') == -1 && searches[i] != '' && rowContent.includes(searches[i].toLowerCase().trim())) {
-                    console.log(searches[i], 'found');
-
-                    // build row if this is the last search
-                    if ( i == searches.length - 1 ) {
-                        show += buildRow(value);
-                    };
-                // exit if no search term found since this is a default AND search
-                } else if ( searches.indexOf('*') == -1 ) {
-                    break;
-                // the OR search case is left
-                } else if (searches[i] != '' && rowContent.includes(searches[i].toLowerCase().trim())) {
-                    show += buildRow(value);
-                    // break here so we don't get duplicates
-                    break;
-                };
-            };
-
-        // if no search criteria show everything
-        } else {
             show += buildRow(value);
-        };
+        }
 
 
     });
@@ -239,7 +234,7 @@ function buildRow(value){
 
     let show = '';
 
-    show += '<tr><td class = "revTableCell"><img src="./images/' + value.image + '"> \n' + value.firstName + ' ' + value.lastName + '</td>';
+    show += '<tr><td class = "revTableCell center"><img style="height: 200px;" src="./images/' + value.image + '"><br><div style="font-size: 22px;;">' + value.firstName + ' ' + value.lastName + '</div></td>';
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
     show += '<td class = "revTableCell">' + '</td>';
