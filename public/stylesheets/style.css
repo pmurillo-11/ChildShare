@@ -65,7 +65,7 @@
 .revTable {
     font-family: Arial, Helvetica, sans-serif;
     width: 95%;
-    font-size: 14px;
+    font-size: 18px;
     margin-left: 20px;
     line-height: 1.4;
     border: 1px solid black;
@@ -74,13 +74,13 @@
 
 .revTableCell {
     border: 1px solid #8999A1;
-    background-color: #91C1AA;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
     white-space: pre-wrap;
     min-height: 50px;
+    font-size: 22px;
 }
 
 .revTableHeader {
@@ -115,177 +115,8 @@
     padding-left: 50px;
 }
 
-.leftSide {
-    width:59%;
-    margin-right:1%;
-    float: left;
-    overflow: auto;
-    height: 700px;
-}
-
-.rightSide {
-    margin-left:60%;
-    width: 39%;
-    margin-right:1%;
-    margin-top: 0px;
-    height: 700px;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.4;
-    font-size: 16px;
-}
-
-.caseNotes {
-    border:1px solid black;
-    width: 500px;
-    height: 600px;
-}
-
-.grayText {
-    color: lightslategray;
-}
-
-.blackText {
-    color: black;
-}
-
-.strikeThrough {
-    text-decoration: line-through;
-}
-
-.italicText {
-    font-style: italic;
-}
-
-.hwt-content mark {
-    border-radius: 3px;
-    background-color: #f6f7e8;
-}
-
-.hwt-content mark.pink {
-    border-radius: 3px;
-    background-color: #fcc2d7;
-}
-
-.hwt-content mark.blue {
-    border-radius: 3px;
-    background-color: #a3daff;
-}
-
-.hwt-content mark.lightGreen {
-    border-radius: 3px;
-    background-color: #99ffbb;
-}
-
-.saveButton {
-    background-color: #017c6e;
-    margin-bottom: 20px;
-    float: left;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-	cursor: pointer;
-	border-radius: 5px;
-	font-family: 'Open Sans', sans-serif;
-}
-
-.greenButton {
-    background-color: #017c6e;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    float: left;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-	cursor: pointer;
-	border-radius: 5px;
-	font-family: 'Open Sans', sans-serif;
-}
-
-.redButton {
-    background-color: red;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    float: left;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
-	cursor: pointer;
-	border-radius: 5px;
-	font-family: 'Open Sans', sans-serif;
-}
-
-.addRowAboveButton {
-    background-color: green;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    float: left;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
-	cursor: pointer;
-	border-radius: 5px;
-	font-family: 'Open Sans', sans-serif;
-}
-
-/* class='large' is for input text area of large size */
-.large {
-	background: white;
-	width: 600px;
-    height: 60px;
-    white-space: pre-wrap;
-}
-
-/* class='mediumlarge' is for input text area of mediumlarge size */
-.mediumlarge {
-	background: white;
-	width: 180px;
-    height: 120px;
-}
 
 
-
-/* class='small' is for input text area of small size */
-.small {
-	background: white;
-	width: 60px;
-    height: 18px;
-}
-
-.bgGray {
-    background: rgb(202, 197, 197);
-}
-
-.admin {
-    background: lightcoral;
-    font-weight: bold;
-    text-align: center;
-    border: 3px solid red;
-    padding: 10px;
-    font-size: 2.0em;
-}
-
-.stepImage {
-    max-width: 500px;
-}
-
-.bigImage {
-    max-width: 800px;
-}
-
-.centerimage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
 
 .sortable {
     font-family: Arial, Helvetica, sans-serif;
@@ -585,4 +416,8 @@ button:hover {
 ::placeholder {
     color: black;
     opacity: 1;
+}
+
+.mybigtable tr:nth-child(even) {
+    background-color: #E8DB71;
 }

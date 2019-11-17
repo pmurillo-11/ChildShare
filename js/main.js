@@ -84,7 +84,8 @@ function startUp(){
                     "userEmail":"aperson@gmail.com",
                     "locationCity":"San Diego",
                     "secretCode":"tbd",
-                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)}],
+                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)},
+                                  {date: oneAfter }],
                     "rank":"1",
                     "children":[{"name":"Mustard","age":"4"}]},
                     {"_id":"5dd06a7560a0b03687cccfcb",
@@ -138,36 +139,39 @@ function buildInterface(){
 
     let show ='';
 
-    show += '<table id = "mytable" class = "sortable" >';
-    show += '<tr"><th class = "revTableCell">Name</th>';
-    show += '<th class = "revTableCell">Location</th>';
-    show += '<th class = "revTableCell">Children</th>';
-    show += '<th class = "revTableCell">Info</th>';
-    show += '<th class = "revTableCell">Contact</th>';
+    show += '<table id = "mytable" class = "mybigtable sortable striped" >';
+    show += '<tr ><th class = "revTableCell center" style="padding-top: 20px; padding-bottom: 20px;">FAMILY</th>';
+    show += '<th class = "revTableCell center">LOCATION</th>';
+    show += '<th class = "revTableCell center">CHILDREN</th>';
+    show += '<th class = "revTableCell center">INFO</th>';
+    show += '<th class = "revTableCell center">CONTACT</th>';
 
     // filter out unavailable users
     $.each(users, function(key, value) {
 
         let d = new Date(dateSelected);
-        let t = Date.parse(dateSelected + ' ' + timeSelected);
+        let t;
+        if ( timeSelected ){
+            t = Date.parse(dateSelected + ' ' + timeSelected);
+        }
 
         // filter table based on search if there is a search entered
         if( value.available ){
 
             for(let i = 0; i < value.available.length; i++){
-
+                console.log(value.available[i].date, timeSelected)
                 if( value.available[i].date.getDate() == d.getDate() &&
                     value.available[i].date.getMonth() == d.getMonth() &&
                     value.available[i].date.getFullYear() == d.getFullYear()){
 
                     // if no time is selected show all for that date, else sort out by time
-                    if ( t &&
+                    if ( timeSelected && t &&
                         value.available[i].startTime <= t &&
                         value.available[i].endTime >= t ){
 
                         show += buildRow(value);
 
-                    } else if (!t) {
+                    } else if (!t || !value.available[i].startTime) {
                         show += buildRow(value);
                     };
                 };
@@ -197,7 +201,7 @@ function buildRow(value){
     show += '<td class = "revTableCell">' + value.locationCity + '</td>';
     show += '<td class = "revTableCell">' + value.children[0].name + ', Age:' + value.children[0].age + '</td>';
     show += '<td class = "revTableCell">' + '</td>';
-    show += '<td class = "revTableCell">' + '</td>';
+    show += '<td class = "revTableCell" style="max-width: 200px;">' + '<i class="medium material-icons" style="background-color:transparent;">chat</i>' +  '</td>';
 
     return show;
 
