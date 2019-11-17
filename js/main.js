@@ -78,7 +78,10 @@ function startUp(){
 
 function showDateSelector(){
     let today = new Date();
-    let show = today.getMonth() + ' ' + today.getDay() + ' ' + today.getFullYear();
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+    "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    let show = monthNames[today.getMonth()] + ' ' + today.getDate() + ' ' + today.getFullYear();
     $('#dateShown').html( show );
 };
 
