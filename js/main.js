@@ -92,6 +92,7 @@ function startUp(){
                     "userEmail":"aperson@gmail.com",
                     "locationCity":"San Diego",
                     "secretCode":"tbd",
+                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)}],
                     "rank":"1",
                     "children":[{"name":"Mustard","age":"4"}]},
                     {"_id":"5dd06a7560a0b03687cccfcb",
@@ -102,6 +103,7 @@ function startUp(){
                     "image": "profile3.png",
                     "userEmail":"aperson@gmail.com",
                     "locationCity":"San Diego",
+                    "available": [{date: new Date(), startTime: new Date().setHours(new Date().getHours() + 4), endTime: new Date().setHours(new Date().getHours() + 12)}],
                     "secretCode":"tbd",
                     "rank":"1",
                     "children":[{"name":"Mustard","age":"4"}]},
@@ -195,7 +197,6 @@ function buildInterface(){
     show += '<th class = "revTableCell">Children</th>';
     show += '<th class = "revTableCell">Info</th>';
     show += '<th class = "revTableCell">Contact</th>';
-    $('#newScriptButton').removeClass('invisible');
 
     $.each(scripts, function(key, value) {
 
@@ -203,21 +204,19 @@ function buildInterface(){
 
         console.log(d)
         // filter table based on search if there is a search entered
-        console.log(new Date(dateSelected).getTime(), value.available[0].date.getDate())
-        if( value.available && value.available[0].date.getDate() == d.getDate() && value.available[0].date.getMonth() == d.getMonth() && value.available[0].date.getFullYear() == d.getFullYear() ){
-
+        console.log(d.getDate(), new Date(value.available[0].date).getDate())
+        if( value.available && new Date(value.available[0].date).getDate() == d.getDate()){
+        //&& value.available[0].date.getMonth() == d.getMonth() && value.available[0].date.getFullYear() == d.getFullYear() ){
+            console.log('hello')
             show += buildRow(value);
-        }
+        };
 
 
     });
-
+    console.log(show)
     show += '</tr></table>';
     $('#scriptList').html( show );
 
-    // Make columns sortable alphabetically
-    let newTableObject = document.getElementById('mytable');
-    sorttable.makeSortable(newTableObject);
 
 }; // end buildInterface
 
